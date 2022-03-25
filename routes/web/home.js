@@ -1,3 +1,4 @@
+// allows navigation between subpages
 var express = require("express");
 
 var router = express.Router();
