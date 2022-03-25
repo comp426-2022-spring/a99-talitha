@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/comp426-2022-spring/a99-talitha/issues"
   },
-  "homepage": "https://github.com/comp426-2022-spring/a99-talitha#readme"
+  "homepage": "https://github.com/comp426-2022-spring/a99-talitha#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
 }
