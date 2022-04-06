@@ -18,10 +18,17 @@
   },
   "homepage": "https://github.com/comp426-2022-spring/a99-talitha#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "minimist": "^1.2.6",
-    "nodemon": "^2.0.15"
+    "mongoose": "^6.2.10",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   }
 }
