@@ -31,10 +31,22 @@ export default function Account(props) {
                         var data = docSnap.data();
                         // alerts user and brings them back home
                         alert("We have recieved your update.");
-                        history.push({
-                          pathname:"/account", 
-                          state: {data, uid}
+
+                        //log the action
+                        var date = new Date();
+                        var dateLabel = date.toString();
+                        setDoc(doc(firestore, "logs", dateLabel), {
+                            action: "updated location",
+                            user: uid,
+                        }).then(() => {
+                            // TO DO: API CALL 
+
+                            history.push({
+                                pathname:"/account", 
+                                state: {data, uid}
+                              });
                         });
+
                     } else {
                         console.log("Did not get data.");
                     }
@@ -49,11 +61,27 @@ export default function Account(props) {
                 //deletes in firebase
                 auth.currentUser.delete().then(() => {
                     alert("Your account has been deleted.");
-                    history.push({
-                        pathname:"/", 
-                      });
+                    //log the action
+                    var date = new Date();
+                    var dateLabel = date.toString();
+                    setDoc(doc(firestore, "logs", dateLabel), {
+                        action: "deleted account",
+                        user: uid,
+                    }).then(() => {
+                       // redirects to dashboard
+                       history.push({
+                         pathname:"/", 
+                       });
+                    });
                 })
             })
+        }
+
+        const backToDash = () => {
+            history.push({
+                pathname:"/dashboard", 
+                state: {data, uid}
+              });
         }
 
     
@@ -63,6 +91,7 @@ export default function Account(props) {
           <header>Your current location is: {data.location}</header>
           <ChangeLocation Update={Update}/>
           <Button style={btnStyle} onClick={deleteAccount}>Delete My Account</Button>
+          <Button style={btnStyle} onClick={backToDash}>Back to Dashboard</Button>
       </div>
   )
 }

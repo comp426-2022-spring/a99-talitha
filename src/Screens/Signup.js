@@ -41,15 +41,21 @@ export default function Signup() {
                   name: name,
                   location: location,
                   }).then(() => {
-                    // TO DO: logs the interaction in the database
-                    
-                    // redirects to dashboard
-                    // TO DO: do API call here
-                    history.push({
-                      pathname:"/dashboard", 
-                      //pass API data here to display
-                      state: {data, uid}, 
-                    });
+                     //log the action
+                     var date = new Date();
+                     var dateLabel = date.toString();
+                     setDoc(doc(firestore, "logs", dateLabel), {
+                         action: "signed up for an account",
+                         user: uid,
+                     }).then(() => {
+                        // redirects to dashboard
+                        // TO DO: do API call here
+                        history.push({
+                          pathname:"/dashboard", 
+                          //pass API data here to display
+                          state: {data, uid}, 
+                        });
+                     });
                   });
             })
             .catch(error => alert(error.message));

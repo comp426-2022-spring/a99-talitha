@@ -3,7 +3,7 @@ import LoginForm from '../Components/LoginForm';
 import { auth } from '../firebase';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { doc, getDoc, setDoc, getFirestore } from "firebase/firestore";
 
 export default function Login() {
     const [user, setUser] = useState({name: "", email: "", })
@@ -29,14 +29,23 @@ export default function Login() {
               getDoc(doc(firestore, "users", uid)).then(docSnap => {
                   if (docSnap.exists()) {
                       var data = docSnap.data();
-                      history.push({
-                        // TO DO: Log to interaction DB here 
-                        // redirects to dashboard
-                        // TO DO: do API call here
-                        pathname:"/dashboard", 
-                        // pass the data as a prop to display
-                        state: {data, uid}
-                      });
+
+                    //log the action
+                    var date = new Date();
+                    var dateLabel = date.toString();
+                    setDoc(doc(firestore, "logs", dateLabel), {
+                        action: "signed in",
+                        user: uid,
+                    }).then(() => {
+                        history.push({
+                            // TO DO: Log to interaction DB here 
+                            // redirects to dashboard
+                            // TO DO: do API call here
+                            pathname:"/dashboard", 
+                            // pass the data as a prop to display
+                            state: {data, uid}
+                          });
+                    });
                   } else {
                       console.log("Did not get data.");
                   }

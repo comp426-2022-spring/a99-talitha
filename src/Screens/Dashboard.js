@@ -1,6 +1,6 @@
 import React from 'react';
 import { auth } from '../firebase';
-import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { doc, setDoc, getFirestore } from "firebase/firestore";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
@@ -10,6 +10,7 @@ export default function Dashboard(props) {
   const history = useHistory();
   const data = props.location.state.data;
   const uid = props.location.state.uid;
+  const firestore = getFirestore();
   console.log("uid: ", uid);
   // grabs location
   const location = props.location.state.location;
@@ -19,8 +20,17 @@ export default function Dashboard(props) {
     auth
       .signOut()
       .then(() => {
-        console.log("signed out");
-        history.push("/");
+        //log the action
+        var date = new Date();
+        var dateLabel = date.toString();
+        setDoc(doc(firestore, "logs", dateLabel), {
+            action: "signed out",
+            user: uid,
+        }).then(() => {
+            history.push({
+                pathname:"/", 
+              });
+        });
       })
       .catch(error => alert(error.message))
   }
