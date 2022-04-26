@@ -10,8 +10,14 @@ export default function Dashboard(props) {
   const history = useHistory();
   const data = props.location.state.data;
   const uid = props.location.state.uid;
+  const apiData = props.location.state.apiData;
+  // counts for grass, tree, and weed pollen will be a string!
+  const grassPollen = apiData.data[0].Count.grass_pollen;
+  const treePollen = apiData.data[0].Count.tree_pollen;
+  const weedPollen = apiData.data[0].Count.weed_pollen;
   const firestore = getFirestore();
   console.log("uid: ", uid);
+  console.log("Api data: ", apiData);
   // grabs location
   const location = props.location.state.location;
 
@@ -60,6 +66,7 @@ export default function Dashboard(props) {
         <div>...</div>
         <header>Dashboard </header>
         <header>Hello, {data.name}</header>
+        <header>temp</header>
       </div>
     </>
   )

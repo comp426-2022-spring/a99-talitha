@@ -48,13 +48,34 @@ export default function Signup() {
                          action: "signed up for an account",
                          user: uid,
                      }).then(() => {
+
+                      fetch("https://api.ambeedata.com/latest/pollen/by-place?place=" + data.location, {
+                        // "method": "GET",
+                        "headers": {
+                            "x-api-key": "",
+                            "Content-type": "application/json"
+                        }
+                    })
+                    .then(response => {
+                        response.json().then(apiData => {
+                            console.log("here is the response: ", apiData);
+                            history.push({
+                                    pathname:"/dashboard", 
+                                    // pass the data as a prop to display
+                                    state: {data, uid, apiData}
+                                  });
+                        })
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
                         // redirects to dashboard
                         // TO DO: do API call here
-                        history.push({
-                          pathname:"/dashboard", 
-                          //pass API data here to display
-                          state: {data, uid}, 
-                        });
+                        // history.push({
+                        //   pathname:"/dashboard", 
+                        //   //pass API data here to display
+                        //   state: {data, uid}, 
+                        // });
                      });
                   });
             })

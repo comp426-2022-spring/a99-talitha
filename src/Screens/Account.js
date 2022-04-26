@@ -68,7 +68,7 @@ export default function Account(props) {
                         action: "deleted account",
                         user: uid,
                     }).then(() => {
-                       // redirects to dashboard
+                       // redirects to sign in
                        history.push({
                          pathname:"/", 
                        });
@@ -78,10 +78,23 @@ export default function Account(props) {
         }
 
         const backToDash = () => {
-            history.push({
-                pathname:"/dashboard", 
-                state: {data, uid}
-              });
+            fetch("https://api.ambeedata.com/latest/pollen/by-place?place=" + data.location, {
+                "method": "GET",
+                "headers": {
+                    "x-api-key": "",
+                    "Content-type": "application/json"
+                }
+            })
+            .then(response => {
+                response.json().then(apiData => {
+                    console.log("here is the response: ", apiData);
+                    history.push({
+                            pathname:"/dashboard", 
+                            // pass the data as a prop to display
+                            state: {data, uid, apiData}
+                          });
+                })
+            })
         }
 
     

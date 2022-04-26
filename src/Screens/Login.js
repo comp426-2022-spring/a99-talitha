@@ -37,14 +37,35 @@ export default function Login() {
                         action: "signed in",
                         user: uid,
                     }).then(() => {
-                        history.push({
-                            // TO DO: Log to interaction DB here 
-                            // redirects to dashboard
-                            // TO DO: do API call here
-                            pathname:"/dashboard", 
-                            // pass the data as a prop to display
-                            state: {data, uid}
-                          });
+
+                        fetch("https://api.ambeedata.com/latest/pollen/by-place?place=" + data.location, {
+                            "method": "GET",
+                            "headers": {
+                                "x-api-key": "",
+                                "Content-type": "application/json"
+                            }
+                        })
+                        .then(response => {
+                            response.json().then(apiData => {
+                                console.log("here is the response: ", apiData);
+                                history.push({
+                                        pathname:"/dashboard", 
+                                        // pass the data as a prop to display
+                                        state: {data, uid, apiData}
+                                      });
+                            })
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                        // history.push({
+                        //     // TO DO: Log to interaction DB here 
+                        //     // redirects to dashboard
+                        //     // TO DO: do API call here
+                        //     pathname:"/dashboard", 
+                        //     // pass the data as a prop to display
+                        //     state: {data, uid}
+                        //   });
                     });
                   } else {
                       console.log("Did not get data.");
