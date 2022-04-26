@@ -15,6 +15,22 @@ export default function Dashboard(props) {
   const grassPollen = apiData.data[0].Count.grass_pollen;
   const treePollen = apiData.data[0].Count.tree_pollen;
   const weedPollen = apiData.data[0].Count.weed_pollen;
+
+  // gets the risk
+  const grassRisk = apiData.data[0].Risk.grass_pollen;
+  const treeRisk = apiData.data[0].Risk.tree_pollen;
+  const weedRisk = apiData.data[0].Risk.weed_pollen;
+
+  // getting top allergens
+  const species = apiData.data[0].Species.Tree;
+  // Get an array of the keys:
+  let keys = Object.keys(species);
+
+  // Then sort by using the keys to lookup the values in the original object:
+  keys.sort(function(a, b) { return species[a] - species[b] });
+
+  console.log("keys ", keys); 
+
   const firestore = getFirestore();
   console.log("uid: ", uid);
   console.log("Api data: ", apiData);
@@ -66,7 +82,11 @@ export default function Dashboard(props) {
         <div>...</div>
         <header>Dashboard </header>
         <header>Hello, {data.name}</header>
-        <header>temp</header>
+        <header>Today's Pollen Report</header>
+        <header>Grass Pollen: {grassRisk}</header>
+        <header>Tree Pollen: {treeRisk}</header>
+        <header>Weed Pollen: {weedRisk}</header>
+        <header>Top Allergens: {keys[8]}, {keys[7]}, {keys[6]}</header>
       </div>
     </>
   )
