@@ -52,7 +52,7 @@ export default function Signup() {
                       fetch("https://api.ambeedata.com/latest/pollen/by-place?place=" + data.location, {
                         // "method": "GET",
                         "headers": {
-                            "x-api-key": "",
+                            "x-api-key": process.env.REACT_APP_AMBEE_API_KEY,
                             "Content-type": "application/json"
                         }
                     })
