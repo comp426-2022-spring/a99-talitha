@@ -5,16 +5,36 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { Button } from 'style-components';
+import BarChart from 'react-easy-bar-chart';
 
 export default function Dashboard(props) {
   const history = useHistory();
   const data = props.location.state.data;
   const uid = props.location.state.uid;
   const apiData = props.location.state.apiData;
-  // counts for grass, tree, and weed pollen will be a string!
+  // counts for grass, tree, and weed pollen 
   const grassPollen = apiData.data[0].Count.grass_pollen;
   const treePollen = apiData.data[0].Count.tree_pollen;
   const weedPollen = apiData.data[0].Count.weed_pollen;
+
+  const data2 = [
+    {
+      title:  "Grass",
+      value: grassPollen,
+      color: "#f2a93b",
+    },
+    {
+      title:  "Tree",
+      value: treePollen,
+      color: "#f2a93b",
+    },
+    {
+      title:  "Weed",
+      value: weedPollen,
+      color: "#f2a93b",
+    },
+    ];
+  
 
   // gets the risk
   const grassRisk = apiData.data[0].Risk.grass_pollen;
@@ -83,6 +103,14 @@ export default function Dashboard(props) {
         <header>Dashboard </header>
         <header>Hello, {data.name}</header>
         <header>Today's Pollen Report</header>
+        <BarChart 
+          xAxis='Pollen Level'
+          yAxis="Count"
+          height={200}
+          width={300}
+          data={data2}
+          
+        />
         <header>Grass Pollen: {grassRisk}</header>
         <header>Tree Pollen: {treeRisk}</header>
         <header>Weed Pollen: {weedRisk}</header>
