@@ -8,7 +8,7 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "better-sqlite3": "^7.5.1",
-    "firebase": "^9.6.10",
+    "firebase": "^9.6.11",
     "formik": "^2.2.9",
     "morgan": "^1.10.0",
     "react": "^18.0.0",
