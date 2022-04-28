@@ -78,10 +78,10 @@ export default function Login() {
     return (
     <div >
         <div>
-            <header>Pollen Patrol</header>
+            <h6 className='intro'>Pollen Patrol</h6>
             <LoginForm Login={Login} error={error}/>
             <div>...</div>
-            <Link to="/signup" style={linkStyle}>Don't have an account? Sign Up Here</Link>
+            <Link to="/signup" style={linkStyle}>Don't have an account? Sign Up <u>Here</u></Link>
         </div>
     </div>
   )

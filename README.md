@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## App Description
+Our pollen app allows you to sign up and track pollen at your current location. Once a user has logged in, they receive a report on average pollen levels as well as grass, tree, and weed pollen levels. Users can also update location whenever they choose to receive the most recent pollen levels at their current location. If the user no longer wants to have their account registered they can also delete their account and data.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -9,7 +13,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser. Here you can see the landing page where an account can log in or a new account can be created to view pollen levels at their inputted location. 
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
@@ -54,6 +58,10 @@ One last rule change needs to be made to allow entries in the database. Go to th
 
 All we need to do to setup API keys is to create a folder in root called env and add your Ambee and firebase API keys to this file. After creating an Ambee account, declare your API key like `REACT_APP_AMBEE_API_KEY`. Then go to your firestore database and get your API key under project settings. Paste only the `const firebaseconfig` part, as seen below, from your database into the same env folder and you're good to go. 
 
+### NOTE
+
+If you are making your own changes to this repository make sure that you do not push any personal API keys that you may be using. Specfically, make sure you include the environment folder that was just created to your .gitignore file to ensure your API keys are not exposed. 
+
 ![Screenshot](./public/FirebaseAPI.jpg)
 
 ## Dependencies
@@ -74,6 +82,9 @@ All we need to do to setup API keys is to create a folder in root called env and
 - react-scripts
 - style-components
 - web-vitals
+
+Run npm install to install all of these dependencies. 
+
 
 ## Learn More
 
