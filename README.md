@@ -41,14 +41,20 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Setting up Firebase
 
-First, go to firebase, sign up, and create a new free project. After you have created a new project we need to setup the actual database. Use the firestore database and create one in production mode. Next, setup we need to setup two collection fields. 
+Head to the firebase website to sign up and create a new free project. After you have created a new project we need to setup the actual database. First setup a realtime database in production mode. There is no changes or rules to be changed here. Create a firestore database in production mode and then setup two collection fields. 
 
-Start a collection called logs, auto-assign an ID, then create a field called action and a separate field called user. 
-Start a second collection called users with an auto-assigned ID and fields location and name.
+Start a collection called logs and auto-assign an ID. Create two fields called action and user. 
+Start a second collection called users with fields location and name.
 
 One last rule change needs to be made to allow entries in the database. Go to the rules page under the firestore database and change line 5 from `allow read, write: if false;` to `allow read, write: if true;`
 
 ![Screenshot](./public/firestore_database.jpg)
+
+## Setting API keys for Ambee and Firebase
+
+All we need to do to setup API keys is to create a folder in root called env and add your Ambee and firebase API keys to this file. Declare your AMBEE API key after creating an account like `REACT_APP_AMBEE_API_KEY`. Then go to your firestore database and get your API key under project settings. Paste only the `const firebaseconfig` part, as seen below, from your database into the same env folder and you're good to go. 
+
+![Screenshot](./public/FirebaseAPI.jpg)
 
 ## Learn More
 
