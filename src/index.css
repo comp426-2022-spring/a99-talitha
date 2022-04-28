@@ -114,6 +114,9 @@ h1 {
   font-weight: 800;
   display: flex;
   align-items: left;
+
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
 }
 
 /* h2 {
@@ -168,3 +171,22 @@ h5{
 .chart{
   align-self: stretch;
 }
+
+.button{
+  cursor: pointer;
+  border: 1px solid orange;
+  transition-duration: .4s;
+  font-size: large;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: #edebf2;
+}
+
+.button:active{
+  transform: translateY(4px);
+}
+
