@@ -106,7 +106,7 @@ export default function Dashboard(props) {
 
         <header>Today's Pollen Report</header>
         </div>
-        <h2><BarChart
+        <h3><BarChart
           axes
           grid
           axisLabels={{x: 'Pollen Level', y: 'Count'}}
@@ -118,7 +118,7 @@ export default function Dashboard(props) {
           width={300}
           data={data2}
           backgroundColor='white'
-        /></h2>
+        /></h3>
 
       </div>
       <div>
