@@ -48,6 +48,7 @@ Start a second collection called users with an auto-assigned ID and fields locat
 
 One last rule change needs to be made to allow entries in the database. Go to the rules page under the firestore database and change line 5 from `allow read, write: if false;` to `allow read, write: if true;`
 
+![Screenshot](./public/firestore_database.jpg)
 
 ## Learn More
 
