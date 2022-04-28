@@ -56,6 +56,25 @@ All we need to do to setup API keys is to create a folder in root called env and
 
 ![Screenshot](./public/FirebaseAPI.jpg)
 
+## Dependencies
+
+- @material-ui/core
+- @testing-library/jest-dom
+- @testing-library/react
+- @testing-library/user-event
+- better-sqlite3
+- eslint-plugin-flowtype
+- firebase
+- formik
+- morgan
+- react
+- react-dom
+- react-easy-bar-chart
+- react-router-dom
+- react-scripts
+- style-components
+- web-vitals
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
