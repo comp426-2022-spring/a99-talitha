@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: montserrat, sans-serif;
+  font-family: Georgia, sans-serif;
 }
 
 input,
@@ -20,6 +20,7 @@ button {
   justify-content: center;
   background-image: url("./Screens/background.png");
   background-size: cover;
+  background-repeat: repeat-y;
 }
 
 form {
@@ -104,9 +105,54 @@ form .form-inner input[type="submit"]:hover {
   background-position: 100% 0%;
 }
 
+h1 {
+  margin: 0;
+  padding-bottom: 0;
+  color: orange;
+  font-family: Georgia;
+  font-size: 20 px;
+  font-weight: 800;
+  display: flex;
+  align-items: left;
+}
+
+h2 {
+  background-color: white;
+  margin: 0;
+  padding-bottom: 0;
+  color: black;
+  font-size: 1 px;
+  font-weight: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+h3 {
+  background-color: white;
+  margin: 0;
+  padding-bottom: 0;
+  color: black;
+  font-size: 1 px;
+  font-weight: 100;
+  display: flex;
+}
+
 header {
   color: orange;
-  padding-bottom: 15px;
-  font-size: 30px;
+  padding-bottom: 10px;
+  font-size: 40 px;
   font-weight: 800;
+  display: flex;
+  align-items: left;
+}
+
+h4 {
+  margin: 0;
+  padding-bottom: 0;
+  color: orange;
+  font-family: Georgia;
+  font-size: 50 px;
+  font-weight: 800;
+  display: flex;
+  align-items: left;
 }

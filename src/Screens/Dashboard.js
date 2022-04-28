@@ -12,7 +12,7 @@ export default function Dashboard(props) {
   const data = props.location.state.data;
   const uid = props.location.state.uid;
   const apiData = props.location.state.apiData;
-  // counts for grass, tree, and weed pollen 
+  // counts for grass, tree, and weed pollen
   const grassPollen = apiData.data[0].Count.grass_pollen;
   const treePollen = apiData.data[0].Count.tree_pollen;
   const weedPollen = apiData.data[0].Count.weed_pollen;
@@ -34,7 +34,7 @@ export default function Dashboard(props) {
       color: "#f2a93b",
     },
     ];
-  
+
 
   // gets the risk
   const grassRisk = apiData.data[0].Risk.grass_pollen;
@@ -49,7 +49,7 @@ export default function Dashboard(props) {
   // Then sort by using the keys to lookup the values in the original object:
   keys.sort(function(a, b) { return species[a] - species[b] });
 
-  console.log("keys ", keys); 
+  console.log("keys ", keys);
 
   const firestore = getFirestore();
   console.log("uid: ", uid);
@@ -70,7 +70,7 @@ export default function Dashboard(props) {
             user: uid,
         }).then(() => {
             history.push({
-                pathname:"/", 
+                pathname:"/",
               });
         });
       })
@@ -80,7 +80,7 @@ export default function Dashboard(props) {
   // redirects to account info page with data and uid
   const handleAccount = () => {
     history.push({
-      pathname:"/account", 
+      pathname:"/account",
       state: {data, uid, apiData}
     });
   }
@@ -88,34 +88,50 @@ export default function Dashboard(props) {
 
   const btnStyle = {
     margin: "1rem",
-    color: 'orange', 
+    color: 'orange',
   };
 
 
   return (
     <>
       <div>
-        <>
+        <div>
+          <h1>Dashboard</h1>
+          <header>Hello, {data.name}.</header>
           <Button onClick={handleAccount} style={btnStyle}>Account Info</Button>
           <Button onClick={handleSignOut} style={btnStyle}>Sign Out</Button>
-        </>
+        </div>
         <div>...</div>
-        <header>Dashboard </header>
-        <header>Hello, {data.name}</header>
+        <div>
+
         <header>Today's Pollen Report</header>
-        <BarChart 
+        </div>
+        <h2><BarChart
+          axes
+          grid
+          axisLabels={{x: 'Pollen Level', y: 'Count'}}
+          margin={{top: 0, right: 0, bottom: 30, left: 100}}
+          yAxisOrientRight
           xAxis='Pollen Level'
           yAxis="Count"
           height={200}
           width={300}
           data={data2}
-          
-        />
-        <header>Grass Pollen: {grassRisk}</header>
-        <header>Tree Pollen: {treeRisk}</header>
-        <header>Weed Pollen: {weedRisk}</header>
-        <header>Top Allergens: {keys[8]}, {keys[7]}, {keys[6]}</header>
+          backgroundColor='white'
+        /></h2>
+
       </div>
+      <div>
+
+      <h3>Grass Pollen: {grassRisk}</h3>
+        <h3>Tree Pollen: {treeRisk}</h3>
+        <h3>Weed Pollen: {weedRisk}</h3>
+        <h3>Top Allergens: {keys[8]}, {keys[7]}, {keys[6]}</h3>
+      {/* </div>
+      <div> */}
+
+
+        </div>
     </>
   )
 }
