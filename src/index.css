@@ -190,3 +190,10 @@ h5{
   transform: translateY(4px);
 }
 
+.intro{
+  align-self: center;
+  color: orange;
+  padding-bottom: 7px;
+  font-size: large;
+}
+
