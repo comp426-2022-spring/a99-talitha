@@ -17,29 +17,32 @@ export default function Dashboard(props) {
   const treePollen = apiData.data[0].Count.tree_pollen;
   const weedPollen = apiData.data[0].Count.weed_pollen;
 
-  const data2 = [
-    {
-      title:  "Grass",
-      value: grassPollen,
-      color: "#f2a93b",
-    },
-    {
-      title:  "Tree",
-      value: treePollen,
-      color: "#f2a93b",
-    },
-    {
-      title:  "Weed",
-      value: weedPollen,
-      color: "#f2a93b",
-    },
-    ];
+  
 
 
   // gets the risk
   const grassRisk = apiData.data[0].Risk.grass_pollen;
   const treeRisk = apiData.data[0].Risk.tree_pollen;
   const weedRisk = apiData.data[0].Risk.weed_pollen;
+
+  //assigns and organizes the data that will be used in the chart
+  const data2 = [
+    {
+      title:  "Grass",
+      value: grassPollen,
+      color: barColor(grassRisk),
+    },
+    {
+      title:  "Tree",
+      value: treePollen,
+      color: barColor(treeRisk),
+    },
+    {
+      title:  "Weed",
+      value: weedPollen,
+      color: barColor(weedRisk),
+    },
+    ];
 
   // getting top allergens
   const species = apiData.data[0].Species.Tree;
@@ -94,8 +97,10 @@ export default function Dashboard(props) {
 
   return (
     <>
-      <div>
+      <div className='chart'>
         <div>
+        <Button onClick={handleAccount} style={btnStyle} className='button'>Account Info</Button>
+          <Button onClick={handleSignOut} style={btnStyle} className='button'>Sign Out</Button>
           <h1>Dashboard</h1>
 
 
@@ -103,9 +108,9 @@ export default function Dashboard(props) {
         <div>...</div>
         <div>
         <header>Hello, {data.name}.</header>
-        <header>Today's Pollen Report</header>
+        <header>Today's Pollen Report:</header>
         </div>
-        <h3><BarChart
+        <h5><BarChart
           axes
           grid
           axisLabels={{x: 'Pollen Level', y: 'Count'}}
@@ -113,15 +118,14 @@ export default function Dashboard(props) {
           yAxisOrientRight
           xAxis='Pollen Level'
           yAxis="Count"
-          height={200}
-          width={300}
+          height={300}
+          width={700}
           data={data2}
           backgroundColor='white'
         />
 
-        </h3>
-        <Button onClick={handleAccount} style={btnStyle}>Account Info</Button>
-          <Button onClick={handleSignOut} style={btnStyle}>Sign Out</Button>
+        </h5>
+        
 
       </div>
       <div>
@@ -137,4 +141,15 @@ export default function Dashboard(props) {
         </div>
     </>
   )
+}
+
+//Sets the color of the bars in the bar chart based on what the risk is for the day
+function barColor(risk){
+  if(risk == "High"){
+    return "#d42c2c";
+  } else if (risk == "Medium"){
+    return "#f2a93b";
+  } else{
+    return "#00a31b";
+  }
 }

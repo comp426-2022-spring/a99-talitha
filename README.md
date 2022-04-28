@@ -39,6 +39,23 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+## Setting up Firebase
+
+Head to the firebase website to sign up and create a new free project. After you have created a new project we need to setup the actual database. First setup a realtime database in production mode. There is no changes or rules to be changed here. Create a firestore database in production mode and then setup two collection fields. 
+
+Start a collection called logs and auto-assign an ID. Create two fields called action and user. 
+Start a second collection called users with fields location and name.
+
+One last rule change needs to be made to allow entries in the database. Go to the rules page under the firestore database and change line 5 from `allow read, write: if false;` to `allow read, write: if true;`
+
+![Screenshot](./public/firestore_database.jpg)
+
+## Setting API keys for Ambee and Firebase
+
+All we need to do to setup API keys is to create a folder in root called env and add your Ambee and firebase API keys to this file. After creating an Ambee account, declare your API key like `REACT_APP_AMBEE_API_KEY`. Then go to your firestore database and get your API key under project settings. Paste only the `const firebaseconfig` part, as seen below, from your database into the same env folder and you're good to go. 
+
+![Screenshot](./public/FirebaseAPI.jpg)
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
