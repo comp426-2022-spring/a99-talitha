@@ -39,6 +39,16 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+## Setting up Firebase
+
+First, go to firebase, sign up, and create a new free project. After you have created a new project we need to setup the actual database. Use the firestore database and create one in production mode. Next, setup we need to setup two collection fields. 
+
+Start a collection called logs, auto-assign an ID, then create a field called action and a separate field called user. 
+Start a second collection called users with an auto-assigned ID and fields location and name.
+
+One last rule change needs to be made to allow entries in the database. Go to the rules page under the firestore database and change line 5 from `allow read, write: if false;` to `allow read, write: if true;`
+
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
