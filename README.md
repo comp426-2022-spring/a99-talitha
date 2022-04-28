@@ -43,9 +43,9 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Setting up Firebase
+## Setting up Firebase + Firestore
 
-Head to the firebase website to sign up and create a new free project. After you have created a new project we need to setup the actual database. First setup a realtime database in production mode. There is no changes or rules to be changed here. Create a firestore database in production mode and then setup two collection fields. 
+Head to the firebase website to sign up and create a new free project. After you have created a new project we need to setup the authentication. Make sure your project is a web app and head over to the tab for "Sign in Method." Then, you want to enable email/password sign in. Now, we want to create a Firestore database to correspond with this authetication data. First setup a realtime database in production mode. There is no changes or rules to be changed here. Create a firestore database in production mode and then setup two collection fields. 
 
 Start a collection called logs and auto-assign an ID. Create two fields called action and user. 
 Start a second collection called users with fields location and name.
