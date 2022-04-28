@@ -58,11 +58,11 @@ One last rule change needs to be made to allow entries in the database. Go to th
 
 All we need to do to setup API keys is to create a folder in root called env and add your Ambee and firebase API keys to this file. After creating an Ambee account, declare your API key like `REACT_APP_AMBEE_API_KEY`. Then go to your firestore database and get your API key under project settings. Paste only the `const firebaseconfig` part, as seen below, from your database into the same env folder and you're good to go. 
 
+![Screenshot](./public/FirebaseAPI.jpg)
+
 ### NOTE
 
 If you are making your own changes to this repository make sure that you do not push any personal API keys that you may be using. Specfically, make sure you include the environment folder that was just created to your .gitignore file to ensure your API keys are not exposed. 
-
-![Screenshot](./public/FirebaseAPI.jpg)
 
 ## Dependencies
 
