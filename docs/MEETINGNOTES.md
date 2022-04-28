@@ -3,11 +3,11 @@
 ## March 24
 # Pre Meeting Work
 Brainstorming topics for web apps 
-Ruth: Covid app 
-Nila: Activity tracker
-Kadhir: Mental health dashboard 
-Jayden: Water drinking app / maybe calories
-Ian: Pollen tracker 
+* Ruth: Covid app 
+* Nila: Activity tracker
+* Kadhir: Mental health dashboard 
+* Jayden: Water drinking app / maybe calories
+* Ian: Pollen tracker 
 # Meeting Notes
 * First meeting, we were all pitching our ideas to one another
 * Eventually settled on Pollen Tracker to help users combat seasonal allergies 
@@ -24,16 +24,15 @@ Ian: Pollen tracker
 
 ## March 29
 # Pre Meeting Work
-Options for Pollen Data: https://www.getambee.com/
-* Free for 15 days 
-* Gets the latest, history, and forecast (only one day though) 
-* Only 100 API calls per day 
-* Have good documentation 
-https://www.breezometer.com/products/pollen-api?utm_term=pollen%20api&utm_campaign=PPC%20Air%20Pollution&utm_source=adwords&utm_medium=ppc&hsa_acc=5247073082&hsa_cam=15055361939&hsa_grp=130159347262&hsa_ad=580336277435&hsa_src=g&hsa_tgt=kwd-357645955588&hsa_kw=pollen%20api&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAjw9qiTBhBbEiwAp-GE0ZOZpVNb9_F0wQzm4J1jiAR2cEvs7WuPBvXLNqTrNidEZQFMaXoIvBoC2_4QAvD_BwE
-* 14 day trial 
-* Documentation not that great 
-* Might be harder to implement
-* Has good data about symptoms, but is it necessary? 
+* Options for Pollen Data: https://www.getambee.com/
+    * Free for 15 days 
+    * Gets the latest, history, and forecast (only one day though) 
+    * Only 100 API calls per day 
+* Another option: https://www.breezometer.com/products/pollen-api?utm_term=pollen%20api&utm_campaign=PPC%20Air%20Pollution&utm_source=adwords&utm_medium=ppc&hsa_acc=5247073082&hsa_cam=15055361939&hsa_grp=130159347262&hsa_ad=580336277435&hsa_src=g&hsa_tgt=kwd-357645955588&hsa_kw=pollen%20api&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAjw9qiTBhBbEiwAp-GE0ZOZpVNb9_F0wQzm4J1jiAR2cEvs7WuPBvXLNqTrNidEZQFMaXoIvBoC2_4QAvD_BwE
+    * 14 day trial 
+    * Documentation not that great 
+    * Might be harder to implement
+    * Has good data about symptoms, but is it necessary? 
 # Meeting Notes
 * Discussion on what API we should use
 * Eventually settled on AMBEE because of the data it provided and easier integration with our project
@@ -75,11 +74,11 @@ https://www.youtube.com/watch?v=qXXknB5bePU&t=48s
     * Make way for people to log symptoms? 
         * Might be too complicated, prioritize basic functionality first
 # Action Items
-Ian - pass data through the pages 
-Ruth - look at .env files and making it so we can push to github without sharing tokens 
-Jayden - design styling for all the pages 
-Nila - start designing components, such as forms and graphs 
-Kadhir - implement the database, log users 
+* Ian - pass data through the pages 
+* Ruth - look at .env files and making it so we can push to github without sharing tokens 
+* Jayden - design styling for all the pages 
+* Nila - start designing components, such as forms and graphs 
+* Kadhir - implement the database, log users 
 # Content to look at
 https://firebase.google.com/docs/firestore/manage-data/add-data
 https://firebase.google.com/docs/auth/web/password-auth

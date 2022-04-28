@@ -22,8 +22,8 @@ Allow user to enable notifications and update name, number, and location.
 ![Layout for account page.](../public/account.png)
 
 ### Roles
-Nila: design, project manager
-Ruth: backend, plan manager
-Kadhir: database, documentation manager
-Ian: frontend, backend connection, release manager
-Jayden: frontend, design, review manager
+* Nila: design, project manager
+* Ruth: backend, plan manager
+* Kadhir: database, documentation manager
+* Ian: frontend, backend connection, release manager
+* Jayden: frontend, design, review manager
