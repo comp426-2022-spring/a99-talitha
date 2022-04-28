@@ -97,13 +97,12 @@ export default function Dashboard(props) {
       <div>
         <div>
           <h1>Dashboard</h1>
-          <header>Hello, {data.name}.</header>
-          <Button onClick={handleAccount} style={btnStyle}>Account Info</Button>
-          <Button onClick={handleSignOut} style={btnStyle}>Sign Out</Button>
+
+
         </div>
         <div>...</div>
         <div>
-
+        <header>Hello, {data.name}.</header>
         <header>Today's Pollen Report</header>
         </div>
         <h3><BarChart
@@ -118,7 +117,11 @@ export default function Dashboard(props) {
           width={300}
           data={data2}
           backgroundColor='white'
-        /></h3>
+        />
+
+        </h3>
+        <Button onClick={handleAccount} style={btnStyle}>Account Info</Button>
+          <Button onClick={handleSignOut} style={btnStyle}>Sign Out</Button>
 
       </div>
       <div>
