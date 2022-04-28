@@ -106,8 +106,8 @@ export default function Account(props) {
           <header>{data.name}'s Account</header>
           <header>Your current location is: {data.location}</header>
           <ChangeLocation Update={Update}/>
-          <Button style={btnStyle} onClick={deleteAccount}>Delete My Account</Button>
-          <Button style={btnStyle} onClick={backToDash}>Back to Dashboard</Button>
+          <Button style={btnStyle} onClick={deleteAccount} className='button'>Delete My Account</Button>
+          <Button style={btnStyle} onClick={backToDash} className='button'>Back to Dashboard</Button>
       </div>
   )
 }
