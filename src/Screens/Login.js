@@ -16,6 +16,8 @@ export default function Login() {
         color: 'orange', 
       };
 
+    
+
     const Login = (details) => {
         console.log(details);
         // signs in with email and pass

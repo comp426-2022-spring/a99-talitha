@@ -81,7 +81,7 @@ export default function Dashboard(props) {
   const handleAccount = () => {
     history.push({
       pathname:"/account", 
-      state: {data, uid}
+      state: {data, uid, apiData}
     });
   }
 

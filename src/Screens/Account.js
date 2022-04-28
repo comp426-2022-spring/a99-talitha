@@ -8,6 +8,7 @@ import { auth } from '../firebase';
 
 export default function Account(props) {
     const data = props.location.state.data;
+    let apiData = props.location.state.apiData;
     const history = useHistory();
     const uid = props.location.state.uid;
     const firestore = getFirestore();
@@ -18,41 +19,55 @@ export default function Account(props) {
         color: 'orange', 
       };
 
-      // handles updating the location
+
       const Update = (details) => {
-        const location = details.location;
-        //updates the document in firestore
-        updateDoc(doc(firestore, "users", uid), {
-            location: location,
-            }).then(() => {
-                // fetches the complete new document
-                getDoc(doc(firestore, "users", uid)).then(docSnap => {
-                    if (docSnap.exists()) {
-                        var data = docSnap.data();
-                        // alerts user and brings them back home
-                        alert("We have recieved your update.");
-
-                        //log the action
-                        var date = new Date();
-                        var dateLabel = date.toString();
-                        setDoc(doc(firestore, "logs", dateLabel), {
-                            action: "updated location",
-                            user: uid,
-                        }).then(() => {
-                            // TO DO: API CALL 
-
-                            history.push({
-                                pathname:"/account", 
-                                state: {data, uid}
-                              });
-                        });
-
-                    } else {
-                        console.log("Did not get data.");
-                    }
+        fetch("https://api.ambeedata.com/latest/pollen/by-place?place=" + details.location, {
+            // "method": "GET",
+            "headers": {
+                "x-api-key": process.env.REACT_APP_AMBEE_API_KEY,
+                "Content-type": "application/json"
+            }
+        }).then((response) => {
+            response.json().then(newApiData => {
+                // validates location
+                if (newApiData.message !== 'success') {
+                    alert("Invalid location");
+                    return;
+                }
+                apiData = newApiData;
+                const location = details.location;
+                updateDoc(doc(firestore, "users", uid), {
+                    location: location
                 })
-            });
-        }
+                    .then(() => {
+                        getDoc(doc(firestore, "users", uid)).then(docSnap => {
+                            if (docSnap.exists()) {
+                                var data = docSnap.data();
+                                // alerts user and brings them back home
+                                alert("We have recieved your update.");
+
+                                //log the action
+                                var date = new Date();
+                                var dateLabel = date.toString();
+                                setDoc(doc(firestore, "logs", dateLabel), {
+                                    action: "updated location",
+                                    user: uid,
+                                }).then(() => {
+
+                                    history.push({
+                                        pathname:"/account", 
+                                        state: {data, uid, apiData}
+                                      });
+                                });
+
+                            } else {
+                                console.log("Did not get data.");
+                            }
+                        })
+                    })
+            })
+        });
+      }
 
         const deleteAccount = () => {
             // deletes from firestore
@@ -78,23 +93,11 @@ export default function Account(props) {
         }
 
         const backToDash = () => {
-            fetch("https://api.ambeedata.com/latest/pollen/by-place?place=" + data.location, {
-                "method": "GET",
-                "headers": {
-                    "x-api-key": process.env.REACT_APP_AMBEE_API_KEY,
-                    "Content-type": "application/json"
-                }
-            })
-            .then(response => {
-                response.json().then(apiData => {
-                    console.log("here is the response: ", apiData);
-                    history.push({
-                            pathname:"/dashboard", 
-                            // pass the data as a prop to display
-                            state: {data, uid, apiData}
-                          });
-                })
-            })
+            history.push({
+                pathname:"/dashboard", 
+                // pass the data as a prop to display
+                state: {data, uid, apiData}
+              });
         }
 
     
