@@ -81,9 +81,10 @@ Removes user from the database.
 
 Will either be ok if the user is deleted, and not if the user is not able to be deleted with an error message.
 
+
+-------------------------------------------------------------------------------------------------------------------
+
 ### /app/
-
-
 
 #### Request
 
