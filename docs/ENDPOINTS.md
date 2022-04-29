@@ -4,7 +4,7 @@
 
 ### Using React
 
-Since this project uses a React.js framework, these are pseudo endpoints that explain the program behavior based on various user interactions.
+We ran into some issues involving React and our Webpack version/polyfills that we could not overcome--we ended up integrating the functionality of these endpoints within the actual page as a workaround, but these are some of our planned endpoints/functionality that we had brainstormed earlier on before realizing it was not possible for our current project structure. 
 
 
 ### /app/
