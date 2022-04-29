@@ -25,6 +25,7 @@ export default function Dashboard(props) {
   const treeRisk = apiData.data[0].Risk.tree_pollen;
   const weedRisk = apiData.data[0].Risk.weed_pollen;
 
+  //assigns and organizes the data that will be used in the chart
   const data2 = [
     {
       title:  "Grass",
@@ -142,10 +143,11 @@ export default function Dashboard(props) {
   )
 }
 
+//Sets the color of the bars in the bar chart based on what the risk is for the day
 function barColor(risk){
-  if(risk == "High"){
+  if(risk.localeCompare("High") == 0){
     return "#d42c2c";
-  } else if (risk == "Medium"){
+  } else if (risk.localeCompare("Moderate") == 0){
     return "#f2a93b";
   } else{
     return "#00a31b";

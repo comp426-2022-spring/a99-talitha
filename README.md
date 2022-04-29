@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## App Description
+Our pollen app allows you to sign up and track pollen at your current location. Once a user has logged in, they receive a report on average pollen levels as well as grass, tree, and weed pollen levels. Users can also update location whenever they choose to receive the most recent pollen levels at their current location. If the user no longer wants to have their account registered they can also delete their account and data.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -9,7 +13,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser. Here you can see the landing page where an account can log in or a new account can be created to view pollen levels at their inputted location. 
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
@@ -39,16 +43,48 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Setting up Firebase
+## Setting up Firebase + Firestore
 
-First, go to firebase, sign up, and create a new free project. After you have created a new project we need to setup the actual database. Use the firestore database and create one in production mode. Next, setup we need to setup two collection fields. 
+Head to the firebase website to sign up and create a new free project. After you have created a new project we need to setup the authentication. Make sure your project is a web app and head over to the tab for "Sign in Method." Then, you want to enable email/password sign in. Now, we want to create a Firestore database to correspond with this authetication data. First setup a realtime database in production mode. There is no changes or rules to be changed here. Create a firestore database in production mode and then setup two collection fields. 
 
-Start a collection called logs, auto-assign an ID, then create a field called action and a separate field called user. 
-Start a second collection called users with an auto-assigned ID and fields location and name.
+Start a collection called logs and auto-assign an ID. Create two fields called action and user. 
+Start a second collection called users with fields location and name.
 
 One last rule change needs to be made to allow entries in the database. Go to the rules page under the firestore database and change line 5 from `allow read, write: if false;` to `allow read, write: if true;`
 
 ![Screenshot](./public/firestore_database.jpg)
+
+## Setting API keys for Ambee and Firebase
+
+All we need to do to setup API keys is to create a folder in root called env and add your Ambee and firebase API keys to this file. After creating an Ambee account, declare your API key like `REACT_APP_AMBEE_API_KEY`. Then go to your firestore database and get your API key under project settings. Paste only the `const firebaseconfig` part, as seen below, from your database into the same env folder and you're good to go. 
+
+![Screenshot](./public/FirebaseAPI.jpg)
+
+### NOTE
+
+If you are making your own changes to this repository make sure that you do not push any personal API keys that you may be using. Specfically, make sure you include the environment folder that was just created to your .gitignore file to ensure your API keys are not exposed. 
+
+## Dependencies
+
+- @material-ui/core
+- @testing-library/jest-dom
+- @testing-library/react
+- @testing-library/user-event
+- better-sqlite3
+- eslint-plugin-flowtype
+- firebase
+- formik
+- morgan
+- react
+- react-dom
+- react-easy-bar-chart
+- react-router-dom
+- react-scripts
+- style-components
+- web-vitals
+
+Run npm install to install all of these dependencies. 
+
 
 ## Learn More
 
