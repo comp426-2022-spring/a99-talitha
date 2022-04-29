@@ -2,9 +2,9 @@
 
 
 
-### React/ /app/ logging in, signing up, get pollen api,   (GET)
+### Using React
 
-There was an issue with implementing one of the Pollen APIs to the original Node.js framework. Since this project uses a React.js framework, these are pseudo endpoints that explain the program behavior based on various user interactions.
+Since this project uses a React.js framework, these are pseudo endpoints that explain the program behavior based on various user interactions.
 
 
 ### /app/
@@ -46,7 +46,7 @@ Authenticate the email and password entered by the user and make sure it exists 
 
 
 
-If the username and password exists in the database, the pathname will change to '/dashboard'
+If the username and password exists in the database, the pathname will change to "/dashboard".
 The data from pollen API for the current date of successful login.
 
 
