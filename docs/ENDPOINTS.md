@@ -6,6 +6,80 @@
 
 We ran into some issues involving React and our Webpack version/polyfills that we could not overcome--we ended up integrating the functionality of these endpoints within the actual page as a workaround, but these are some of our planned endpoints/functionality that we had brainstormed earlier on before realizing it was not possible for our current project structure. 
 
+### /app/login/:credentials (GET)
+
+
+
+#### Request
+
+
+Attempts to log the user into the web app with the passed credentials.
+
+
+
+#### Response
+
+Will either be ok if the user is signed in, and not if the user is not able to be authenticated with an error message.
+
+
+### /app/signup/:credentials (POST)
+
+
+
+#### Request
+
+
+Attempts to sign the user into the web app with the passed credentials.
+
+
+
+#### Response
+
+Will either be ok if the user is signed up, and not if the user is not able to be created with an error message.
+
+### /app/updatelocation/:location (POST)
+
+
+#### Request
+
+
+Attempts to update the user location with the new location.
+
+
+
+#### Response
+
+Will either be ok if the location is updated, and not if the doc is unable to be set with an error message.
+
+
+### /app/fetchdata/:location (GET)
+
+
+
+#### Request
+
+
+Attempts to get the pollen data for a given location
+
+
+
+#### Response
+
+Wil be the document from the external API if recieved. 
+
+### /app/deleteaccount/:credentials (POST)
+
+
+
+#### Request
+
+
+Removes user from the database. 
+
+
+#### Response
+
+Will either be ok if the user is deleted, and not if the user is not able to be deleted with an error message.
 
 ### /app/
 
