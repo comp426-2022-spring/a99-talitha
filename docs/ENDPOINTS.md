@@ -22,7 +22,7 @@ http://localhost:3000
 
 
 
-Displays the login page with a ability to autheticate the user's email and password, and a link to 'Sign Up Here' an ability for the user to sign up
+Displays the login page with a ability to autheticate the user's email and password, and a link to 'Sign up Here' for an ability for the user to sign up
 
 
 
@@ -47,10 +47,10 @@ Authenticate the email and password entered by the user and make sure it exists 
 
 
 If the username and password exists in the database, the pathname will change to "/dashboard".
-The data from pollen API for the current date of successful login.
+The data will be pulled from the pollen API for the current date of successful login.
 
 
-If login unsuccessful, an error message will be returned.
+If the login is unsuccessful, an error message will be returned.
 
 
 
@@ -69,8 +69,8 @@ http://localhost:3000/signup
 #### Response
 
 
-If user clicks the signup option on the login page, they are taken to a page with the "/signup" pathname.
-The signup page collects name, location, email, password and logs them into the database.
+If user clicks the 'Sign up Here' option on the login page, they are taken to a page with the "/signup" pathname.
+The signup page collects name, location, email, password from the user and logs them into the database.
 
 A popup error message is returned if the email already exists in the database, or if the location does not exist in the Pollen API.
 
