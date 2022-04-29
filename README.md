@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## App Description
-Our pollen app allows you to sign up and track pollen at your current location. Once a user has logged in, they receive a report on average pollen levels as well as grass, tree, and weed pollen levels. Users can also update location whenever they choose to receive the most recent pollen levels at their current location. If the user no longer wants to have their account registered they can also delete their account and data.
+Our pollen app is designed to help people stay on top of their seasonal allergies by providing them with a comprehensive pollen report for a given area. Users are able to create an account and view all this information for their saved location in a dashboard which displays this information graphically as well as breaks down the top allergens at that given moment. Users are able to update their location and delete their account should they no longer wish to use it. 
 
 This project was made using React + Firebase/Firestore. It was a great learning opportunity for us & we hope you enjoy our result!
 
